@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatiblie" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>123</title>
+  
+        <script>
+        async function getData(){
+          const data = await fetch('https://dummyjson.com/users');
+          const records = await data.json();
+          
+          let tab = '';
+          records.users.forEach(function(user) {
+            tab += `<tr>
+            <td>`+`cc`+`${user.lastName}</td>
+            <td>${user.lastName}</td>
+            <td>${user.age}</td>
+            <td>${user.email}</td>
+            <td>${user.gender}</td>
+            </tr>`
+            
+          })
+          document.getElementById('tbody').innerHTML = tab;
+        }
+    </script>
+</head>
+
+<body onload="getData()">
+   <table class="table table-striped" id="userTable">
+    <thead>
+    <tr>
+      <th>FName</th>
+      <th>LName</th>
+      <th>Age</th>
+      <th>email</th>
+      <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+    </table>
+</body>
+</html>
